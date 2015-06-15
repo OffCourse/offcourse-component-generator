@@ -38,7 +38,7 @@ gulp.task('default', function (done) {
     gulp.src(__dirname + '/templates/**/*', { dot: true })
       .pipe(template(data, options))
       .pipe(conflict('./'))
-      .pipe(gulp.dest('./'))
+      .pipe(gulp.dest('./' + options.helpers.kebab(data.name)))
       .pipe(install())
       .on('end', function () {
         done();
